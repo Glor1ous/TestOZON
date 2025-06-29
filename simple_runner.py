@@ -67,7 +67,7 @@ def parse_ozon_reviews(product_url: str, config: ParserConfig = None) -> Dict:
 
 def main():
     if len(sys.argv) < 2:
-        print("Использование: python simple_runner.py <URL_товара_на_Ozon>")
+  
         sys.exit(1)
 
     product_url = sys.argv[1]
