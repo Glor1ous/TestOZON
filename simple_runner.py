@@ -54,7 +54,7 @@ def parse_ozon_reviews(product_url: str, config: ParserConfig = None) -> Dict:
         return result
 
     except Exception as e:
-        print(f"❌ Ошибка при парсинге: {e}")
+        print(f"Ошибка при парсинге: {e}")
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         screenshot_path = f"{config.screenshots_dir}/error_{timestamp}.png"
         try:
