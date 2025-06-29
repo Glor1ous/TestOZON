@@ -294,7 +294,7 @@ class OzonReviewsParserImproved:
     
     def _navigate_to_reviews(self):
         try:
-            self._debug_print("Ищем ссылку на отзывы...")
+            self._debug_print("Ищем ссылку")
             
             reviews_link_selectors = [
                 '[data-widget="webReviewProductScore"] a',
@@ -313,7 +313,7 @@ class OzonReviewsParserImproved:
                     elements = self.driver.find_elements(By.CSS_SELECTOR, selector)
                     if elements:
                         reviews_link = elements[0]
-                        self._debug_print(f"Найдена ссылка на отзывы: {selector}")
+                        self._debug_print(f"Ссылка: {selector}")
                         break
                 except:
                     continue
@@ -328,17 +328,17 @@ class OzonReviewsParserImproved:
                 
                 time.sleep(3)
             else:
-                self._debug_print("Пытаемся перейти по прямой ссылке на отзывы")
+                self._debug_print("переход по прямой ссылке на отзывы")
                 base_url = self.driver.current_url.split('?')[0]
                 reviews_url = f"{base_url}?tab=reviews"
                 self.driver.get(reviews_url)
                 time.sleep(3)
                 
         except Exception as e:
-            self._debug_print(f"Ошибка при навигации к отзывам: {e}")
+            self._debug_print(f"ошибка при навигации к отзывам: {e}")
     
     def _parse_all_reviews(self):
-        self._debug_print("Начинаем парсинг всех отзывов...")
+        self._debug_print("парсинг всех отзывов...")
         
         found_reviews = self._find_reviews_on_current_page()
         
@@ -392,7 +392,7 @@ if __name__ == "__main__":
     import sys
     
     if len(sys.argv) < 2:
-        print("Использование: python improved_parser.py <URL>")
+     
         sys.exit(1)
     
     url = sys.argv[1]
